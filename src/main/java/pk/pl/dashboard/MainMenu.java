@@ -104,13 +104,13 @@ public class MainMenu extends JFrame implements MouseListener {
         if (e.getSource() == sendDataButton) {
             DataBase save = new DataBase();
             try {
-                save.saveData(
-                        category.getText(),
-                        subCategory.getText(),
-                        Float.parseFloat(expense.getText()),
-                        comment.getText(),
-                        new Date(Long.parseLong(date.getText()))
-                );
+         //       save.saveData(
+          //              category.getText(),
+          //              subCategory.getText(),
+           //             Float.parseFloat(expense.getText()),
+          //              comment.getText(),
+         //               new Date(Long.parseLong(date.getText()))
+          //      );
             } catch (Exception ex) {
                 System.err.println(ex.getMessage());
             }

@@ -8,12 +8,14 @@ public class NavPanel extends JPanel {
     UserProfilePanel userProfilePanel = new UserProfilePanel();
 
     JButton newExpensesSectionButton = new JButton("New expense");
+    JButton reportsSectionButton = new JButton("Reports");
     JButton exitButton = new JButton("EXIT");
 
     public NavPanel(MouseListener mainDashboard) {
         this.setLayout(new BoxLayout(this ,BoxLayout.Y_AXIS));
 
         newExpensesSectionButton.addMouseListener(mainDashboard);
+        reportsSectionButton.addMouseListener(mainDashboard);
         exitButton.addMouseListener(mainDashboard);
 
         this.add(Box.createRigidArea(new Dimension(200,0)));
@@ -21,6 +23,7 @@ public class NavPanel extends JPanel {
 
         this.add(userProfilePanel);
         this.add(newExpensesSectionButton);
+        this.add(reportsSectionButton);
         this.add(exitButton);
     }
 
@@ -30,4 +33,5 @@ public class NavPanel extends JPanel {
     public JButton getNewExpensesSectionButton() {
         return newExpensesSectionButton;
     }
+    public JButton getReportsSectionButton() { return reportsSectionButton; }
 }

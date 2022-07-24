@@ -18,22 +18,22 @@ public class DataBase {
         }
     }
 
-    public void saveData(String category, String subcategory, float expense, String comment, Date date) throws SQLException {
+    public void saveData(String name, String category, String subcategory, float expense, String comment, Date date) throws SQLException {
         try {
             PreparedStatement pstmt = conn.prepareStatement(
                     "INSERT INTO expenses " +
-                            "(category, subcategory, expense, comment, date) "
-                            + "VALUES (?, ?, ?, ?, ?)");
-            pstmt.setString(1, category);
-            pstmt.setString(2, subcategory);
-            pstmt.setFloat(3, expense);
-            pstmt.setString(4, comment);
-            pstmt.setDate(5, date);
+                            "(name ,category, subcategory, expense, comment, date) "
+                            + "VALUES (?, ?, ?, ?, ?, ?)");
+            pstmt.setString(1, name);
+            pstmt.setString(2, category);
+            pstmt.setString(3, subcategory);
+            pstmt.setFloat(4, expense);
+            pstmt.setString(5, comment);
+            pstmt.setDate(6, date);
             pstmt.executeUpdate();
             System.out.println("Record has been saved to database");
             try {
                 pstmt.close();
-                this.conn.close();
             }
             catch (Exception e){
                 System.err.println(e.getMessage());
@@ -41,6 +41,14 @@ public class DataBase {
 
         }
         catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public void closeDateBase() throws SQLException {
+        try {
+            this.conn.close();
+        } catch (Exception e) {
             System.err.println(e.getMessage());
         }
     }

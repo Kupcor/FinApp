@@ -5,7 +5,5 @@ import javax.swing.*;
 public class UserProfilePanel extends JPanel {
 
     public UserProfilePanel() {
-
-
     }
 }
