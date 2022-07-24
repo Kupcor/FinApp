@@ -1,17 +1,16 @@
-package pk.pl;
+package pk.pl.dashboard;
 
-import com.formdev.flatlaf.ui.FlatRoundBorder;
+import pk.pl.database.DataBase;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.sql.Date;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class MainMenu extends JFrame implements MouseListener {
-    private ArrayList<JTextField> additionalExpensesList = new ArrayList<JTextField>();
+    private ArrayList<JTextField> additionalExpensesList = new ArrayList<>();
 
     private int width;
     private int height;

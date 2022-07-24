@@ -1,16 +1,15 @@
-package pk.pl;
+package pk.pl.database;
 
 import java.sql.*;
-import java.util.ArrayList;
 
 public class DataBase {
-    private String myDriver = "com.mysql.cj.jdbc.Driver";
-    private String myUrl = "jdbc:mysql://localhost:3306/finapp";
     private Connection conn;
 
     public DataBase() {
         try {
+            String myDriver = "com.mysql.cj.jdbc.Driver";
             Class.forName(myDriver);
+            String myUrl = "jdbc:mysql://localhost:3306/finapp";
             this.conn = DriverManager.getConnection(myUrl, "root", "");
             System.out.println("Connected to expenses database");
         }
@@ -48,7 +47,8 @@ public class DataBase {
 
     public void readData(){
         try {
-            Statement stmt = this.conn.createStatement();
+            System.out.println("Connected to expenses database");
+            Statement stmt = conn.createStatement();
             String sql = "SELECT * FROM expenses";
             ResultSet rs = stmt.executeQuery(sql);
             System.out.println("Records have been loaded");
@@ -63,7 +63,7 @@ public class DataBase {
             try {
                 stmt.close();
                 rs.close();
-                this.conn.close();
+                conn.close();
             }
             catch (Exception e){
                 System.err.println(e.getMessage());
